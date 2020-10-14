@@ -11,9 +11,19 @@ public class TrackPoint {
 	private double distance;
 	
 	
-	TrackPoint(){
-		
+	public TrackPoint(String date, String time, double elapsedTime, double longitude, double latitude, double altitude, double distance){
+		this.date = date;
+		this.time = time;
+		this.elapsedTime = elapsedTime;
+		this.longitude = longitude;
+		this.latitude = latitude;
+		this.altitude = altitude;
+		this.distance = distance;
 	};
+	
+	public TrackPoint() {
+		
+	}
 	
 	
 	public void setDate(String date) {
@@ -47,6 +57,14 @@ public class TrackPoint {
 	
 	public void setDistance(double distance) {
 		this.distance = distance;
+	}
+	
+	@Override
+	public String toString() {
+		
+		String row = this.date + "," + this.time + "," + Double.toString(this.elapsedTime) + "," + Double.toString(this.longitude) + "," + Double.toString(this.latitude) + "," + Double.toString(this.altitude) + "," + Double.toString(this.distance);
+		
+		return row;
 	}
 	
 }
