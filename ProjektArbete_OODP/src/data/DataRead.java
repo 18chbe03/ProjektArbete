@@ -1,6 +1,7 @@
 package data;
 
-//C:\\Users\\fredr\\OneDrive\\Dokument\\ObjektOrienteradProgramering\\Projekt\\CSV-filer\\csv\\CSV_TestFile.csv - Datasökväg
+//C:\\Users\\fredr\\OneDrive\\Dokument\\ObjektOrienteradProgramering\\Projekt\\CSV-filer\\csv\\CSV_TestFile.csv - Datasï¿½kvï¿½g
+//C:\\Users\\chris\\OneDrive\\Skrivbord\\Skola\\HÃ¶sttermin2020\\Objektorienteraddesignochprogrammering\\csv\\CSV_TestFile.csv
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -38,7 +39,7 @@ public class DataRead {
 	
 	public static void main(String[] args) {
 		
-		DataRead dr = new DataRead("C:\\Users\\fredr\\OneDrive\\Dokument\\ObjektOrienteradProgramering\\Projekt\\CSV-filer\\csv\\CSV_TestFile.csv");
+		DataRead dr = new DataRead("C:\\Users\\chris\\OneDrive\\Skrivbord\\Skola\\HÃ¶sttermin2020\\Objektorienteraddesignochprogrammering\\csv\\CSV_TestFile.csv");
 		dr.readFile();
 			
 	}
