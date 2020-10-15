@@ -1,6 +1,6 @@
 package trackPoint;
 
-public class TrackPoint {
+public class TrackPoint implements TrackingPointType{
 
 	private String date;
 	private String time;
@@ -20,77 +20,88 @@ public class TrackPoint {
 		this.altitude = altitude;
 		this.distance = distance;
 	};
-	
+
 	public TrackPoint() {
 		
 	}
 	
-	
+	@Override
 	public void setDate(String date) {
 		this.date = date;
 	}
 	
-	
+	@Override
 	public void setTime(String time) {
 		this.time = time;
 	}
 	
-	
-	public String getDate() {
-		return date;
-	}
-
-	public String getTime() {
-		return time;
-	}
-
-	public double getElapsedTime() {
-		return elapsedTime;
-	}
-
-	public double getLongitude() {
-		return longitude;
-	}
-
-	public double getLatitude() {
-		return latitude;
-	}
-
-	public double getAltitude() {
-		return altitude;
-	}
-
-	public double getDistance() {
-		return distance;
-	}
-
+	@Override
 	public void setElapsedTime(double elapsedTime) {
 		this.elapsedTime = elapsedTime;
 	}
 	
-	
+	@Override
 	public void setLongitude(double longitude) {
 		this.longitude = longitude;
 	}
 	
 	
+	@Override
 	public void setLatitude(double latitude) {
 		this.latitude = latitude;
 	}
 	
 	
+	@Override
 	public void setAltitude(double altitude) {
 		this.altitude = altitude;
 	}
 	
+	@Override
 	public void setDistance(double distance) {
 		this.distance = distance;
 	}
 	
 	@Override
+	public String getDate() {
+		return this.date;
+	}
+	
+	@Override
+	public String getTime() {
+		return this.time;
+	}
+	
+	@Override
+	public double getElapsedTime() {
+		return this.elapsedTime;
+	}
+	
+	@Override
+	public double getLongitude() {
+		return this.longitude;
+	}
+	
+	@Override
+	public double getLatitude() {
+		return this.latitude;
+	}
+
+	@Override
+	public double getAltitude() {
+		return this.altitude;
+	}
+
+	@Override
+	public double getDistance() {
+		return this.distance;
+	}
+	
+	
+	@Override
 	public String toString() {
 		
-		String row = this.date + "," + this.time + "," + Double.toString(this.elapsedTime) + "," + Double.toString(this.longitude) + "," + Double.toString(this.latitude) + "," + Double.toString(this.altitude) + "," + Double.toString(this.distance);
+		String row = this.date + ", " + this.time + ", " + Double.toString(this.elapsedTime) + ", " + Double.toString(this.longitude) + ", " + Double.toString(this.latitude) + ", " + Double.toString(this.altitude) + ", " + Double.toString(this.distance);
 		
 		return row;
 	}
