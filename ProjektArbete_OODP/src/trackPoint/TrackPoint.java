@@ -36,6 +36,34 @@ public class TrackPoint {
 	}
 	
 	
+	public String getDate() {
+		return date;
+	}
+
+	public String getTime() {
+		return time;
+	}
+
+	public double getElapsedTime() {
+		return elapsedTime;
+	}
+
+	public double getLongitude() {
+		return longitude;
+	}
+
+	public double getLatitude() {
+		return latitude;
+	}
+
+	public double getAltitude() {
+		return altitude;
+	}
+
+	public double getDistance() {
+		return distance;
+	}
+
 	public void setElapsedTime(double elapsedTime) {
 		this.elapsedTime = elapsedTime;
 	}
