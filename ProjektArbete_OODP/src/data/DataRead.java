@@ -57,7 +57,7 @@ public class DataRead {
 	
 	public static void main(String[] args) {
 		
-		DataRead dr = new DataRead("C:\\Users\\fredr\\OneDrive\\Dokument\\ObjektOrienteradProgramering\\Projekt\\CSV-filer\\csv\\CSV_TestFile.csv");
+		DataRead dr = new DataRead("C:\\Users\\chris\\OneDrive\\Skrivbord\\Skola\\Hösttermin2020\\Objektorienteraddesignochprogrammering\\csv\\\\CSV_TestFile.csv");
 		ArrayList<TrackPoint> test = dr.readFile();
 		
 		test.get(1).toString();
