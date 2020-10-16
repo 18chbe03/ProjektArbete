@@ -9,6 +9,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 
+
+import database.PointDAO;
+
 import trackPoint.TrackPoint;
 
 
@@ -32,18 +35,16 @@ public class DataRead {
 			while((line = br.readLine()) != null) {
 				String[] values  = line.split(";");
 				
-			
-			
-					ref = new TrackPoint();
-					ref.setTime(values[0].toString());
-					ref.setDate(values[1].toString());
-					ref.setElapsedTime(Double.parseDouble(values[2]));
-					ref.setLongitude(Double.parseDouble(values[3]));
-					ref.setLatitude(Double.parseDouble(values[4]));
-					ref.setAltitude(Double.parseDouble(values[5]));
-					ref.setDistance(Double.parseDouble(values[6]));
+				ref = new TrackPoint();
+				ref.setTime(values[0].toString());
+				ref.setDate(values[1].toString());
+				ref.setElapsedTime(Double.parseDouble(values[2]));
+				ref.setLongitude(Double.parseDouble(values[3]));
+				ref.setLatitude(Double.parseDouble(values[4]));
+				ref.setAltitude(Double.parseDouble(values[5]));
+				ref.setDistance(Double.parseDouble(values[6])); 
 					
-					trackPointList.add(ref);
+				trackPointList.add(ref);
 				
 			}
 			
@@ -55,15 +56,22 @@ public class DataRead {
 	}
 	
 	
-	public static void main(String[] args) {
 		
-		DataRead dr = new DataRead("C:\\Users\\chris\\OneDrive\\Skrivbord\\Skola\\Hösttermin2020\\Objektorienteraddesignochprogrammering\\csv\\\\CSV_TestFile.csv");
-		ArrayList<TrackPoint> test = dr.readFile();
 		
-		test.get(1).toString();
-			
-	}
 
+		public static void main(String [] args ) {
+			
+			PointDAO poinddoa = new PointDAO (); 
+			TrackPoint update = new TrackPoint ("2016-09-24" , "11:50:03", 0, 18.1765415, 59.359862, 26, 0.3,0,0,0 );
+			
+			List <TrackPoint> list = poinddoa.getAll();
+			
+			TrackPoint point = list.get(0);
+			
+			poinddoa.update(update);
+			
+			
+			System.out.println(point.toString());
 	
-	
+		}
 }
