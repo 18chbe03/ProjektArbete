@@ -65,13 +65,14 @@ public class DataRead {
 			TrackPoint update = new TrackPoint ("2016-09-24" , "11:50:03", 0, 18.1765415, 59.359862, 26, 0.3,0,0,0 );
 			
 			List <TrackPoint> list = poinddoa.getAll();
+
+			for(int i = 0; i < list.size(); i++) {
+				System.out.println(list.get(i).toString());	
+			}
 			
-			TrackPoint point = list.get(0);
-			
-			poinddoa.update(update);
-			
-			
-			System.out.println(point.toString());
+			//TrackPoint point = list.get(0);
+			//poinddoa.update(update);
+			//System.out.println(point.toString());
 	
 		}
 }

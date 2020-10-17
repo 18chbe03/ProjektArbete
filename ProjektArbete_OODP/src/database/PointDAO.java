@@ -8,15 +8,17 @@ import java.util.List;
 
 import trackPoint.TrackPoint;
 
-public class PointDAO {
+public class PointDAO implements Dao<TrackPoint>{
+	
 	DbConnectionManager dbConManagerSingleton = null;
 	
+	@Override
 	public List<TrackPoint> getAll() {
 		List<TrackPoint> list = new ArrayList<>();
 	
 		dbConManagerSingleton =DbConnectionManager.getInstance();
 		try {
-			ResultSet resultSet = dbConManagerSingleton.excecuteQuery("SELECT Date, Time, ElapsedTim, Longitude, latitude, altitude, distance, heartrate,speed, cadence   FROM points");
+			ResultSet resultSet = dbConManagerSingleton.excecuteQuery("SELECT Date, Time, ElapsedTim, Longitude, latitude, altitude, distance, heartrate,speed, cadence FROM points");
 			while(resultSet.next()) {
 				list.add(new TrackPoint(resultSet.getString(1).trim(),
 						resultSet.getString(2).trim(),
@@ -39,46 +41,39 @@ public class PointDAO {
 		return list;
 	}
 	
-	public List<TrackPoint> update(TrackPoint p) {
-		List<TrackPoint> list = new ArrayList<>();
-		PreparedStatement preparedStatement = null; 
+	@Override
+	public void update(List<TrackPoint> tList) {
 		
+
+		PreparedStatement preparedStatement = null; 
 		ResultSet resultSet = null;
 		
 		
-		
 		try {
+			
+			for(int i = 0; i < tList.size(); i++) {
+			
 			preparedStatement = dbConManagerSingleton.prepareStatement("Insert INTO points(Date, Time, ElapsedTim , Latitude ,Longitude ,Altitude ,Distance ,HeartRate , Speed ,Cadence) values(CAST(? AS DATE), CAST(? AS TIME), ?, ?, ?, ?, ?,?, ?, ?)");
 			
-			preparedStatement.setString(1, p.getDate());
-			preparedStatement.setString(2, p.getTime());
-			preparedStatement.setDouble(3, p.getElapsedTime());
-			preparedStatement.setDouble(4, p.getLatitude());
-			preparedStatement.setDouble(5, p.getLongitude());
-			preparedStatement.setDouble(6, p.getAltitude());
-			preparedStatement.setDouble(7, p.getDistance());
-			preparedStatement.setInt(8, p.getHeartRate());
-			preparedStatement.setDouble(9, p.getSpeed());
-			preparedStatement.setInt(10, p.getCadence());
-			
-			
+			preparedStatement.setString(1, tList.get(i).getDate());
+			preparedStatement.setString(2, tList.get(i).getTime());
+			preparedStatement.setDouble(3, tList.get(i).getElapsedTime());
+			preparedStatement.setDouble(4, tList.get(i).getLatitude());
+			preparedStatement.setDouble(5, tList.get(i).getLongitude());
+			preparedStatement.setDouble(6, tList.get(i).getAltitude());
+			preparedStatement.setDouble(7, tList.get(i).getDistance());
+			preparedStatement.setInt(8, tList.get(i).getHeartRate());
+			preparedStatement.setDouble(9, tList.get(i).getSpeed());
+			preparedStatement.setInt(10, tList.get(i).getCadence());
+		
 			preparedStatement.execute();
-			
-			resultSet = preparedStatement.getResultSet();
-			//resultSet.next();
-			
-			
+			}
+				
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}
-		return list; 
-		
-		
-		
+		}	
 		
 	}
 	
-	
-
 	
 }
