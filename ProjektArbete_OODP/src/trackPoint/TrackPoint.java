@@ -29,7 +29,7 @@ public class TrackPoint implements TrackingPointType{
 	};
 
 	public int getHeartRate() {
-		return heartRate;
+		return this.heartRate;
 	}
 
 	public void setHeartRate(int heartRate) {

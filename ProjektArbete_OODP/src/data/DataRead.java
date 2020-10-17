@@ -11,7 +11,7 @@ import java.util.*;
 
 
 import database.PointDAO;
-
+import presentation.DataPresentation;
 import trackPoint.TrackPoint;
 
 
@@ -43,8 +43,12 @@ public class DataRead {
 				ref.setLatitude(Double.parseDouble(values[4]));
 				ref.setAltitude(Double.parseDouble(values[5]));
 				ref.setDistance(Double.parseDouble(values[6])); 
+				ref.setHeartRate(Integer.parseInt(values[7]));
+				ref.setSpeed(Double.parseDouble(values[8]));
+				ref.setCadence(Integer.parseInt(values[9]));
+				
 					
-				trackPointList.add(ref);
+				this.trackPointList.add(ref);
 				
 			}
 			
@@ -52,7 +56,7 @@ public class DataRead {
 			e.printStackTrace();
 		}
 	
-		return trackPointList;
+		return this.trackPointList;
 	}
 	
 	
@@ -61,8 +65,9 @@ public class DataRead {
 
 		public static void main(String [] args ) {
 			
-			PointDAO poinddoa = new PointDAO (); 
+			/*PointDAO poinddoa = new PointDAO (); 
 			TrackPoint update = new TrackPoint ("2016-09-24" , "11:50:03", 0, 18.1765415, 59.359862, 26, 0.3,0,0,0 );
+			DataPresentation dp = new DataPresentation();
 			
 			List <TrackPoint> list = poinddoa.getAll();
 
@@ -70,9 +75,15 @@ public class DataRead {
 				System.out.println(list.get(i).toString());	
 			}
 			
-			//TrackPoint point = list.get(0);
-			//poinddoa.update(update);
-			//System.out.println(point.toString());
-	
+			System.out.println("Den genomsnittliga pulsen under rundan var: " + dp.getAvargeHeartRate());
+			System.out.println("Maxpuls under rundan var: " + dp.getMaxHeartRate());*/
+		
+			DataRead dr = new DataRead("C:\\Users\\fredr\\Documents\\Objektorienterad prog\\Projekt\\Datafiler\\csv\\activity_3412661142.csv");
+			List<TrackPoint> list = new ArrayList<TrackPoint>();
+			list = dr.readFile();
+			
+			for(int i = 0; i < list.size(); i++) {
+				System.out.println(list.get(i).toString());
+			}
 		}
 }
