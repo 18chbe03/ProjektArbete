@@ -5,8 +5,11 @@ import trackPoint.*;
 
 public class DataPresentation {
 
-	private Dao<TrackPoint> pointsDao = new PointDAO();
-	private List<TrackPoint> pointList = pointsDao.getAll();
+	private List<TrackPoint> pointList;
+	
+	DataPresentation(List<TrackPoint> pointList) {
+		this.pointList = pointList;
+	}
 			
 	public double getAvargeHeartRate() {
 		double sumHR = 0;

@@ -6,5 +6,6 @@ public interface Dao<T> {
 
 	List<T> getAll();
 	void update(List<T> tList);
+	List<T> getActivityPointsById(int id);
 	
 }

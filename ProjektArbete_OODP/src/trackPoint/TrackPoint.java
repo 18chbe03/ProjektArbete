@@ -132,7 +132,11 @@ public class TrackPoint implements TrackingPointType{
 	@Override
 	public String toString() {
 		
-		String row = this.date + ", " + this.time + ", " + Double.toString(this.elapsedTime) + ", " + Double.toString(this.longitude) + ", " + Double.toString(this.latitude) + ", " + Double.toString(this.altitude) + ", " + Double.toString(this.distance);
+		String row = this.date + ", " + this.time + ", " + Double.toString(this.elapsedTime) 
+		+ ", " + Double.toString(this.longitude) + ", " + Double.toString(this.latitude) 
+		+ ", " + Double.toString(this.altitude) + ", " + Double.toString(this.distance)
+		+ ", " + Double.toString(this.heartRate) + ", " + Double.toString(this.speed) 
+		+ ", " + Double.toString(this.cadence);
 		
 		return row;
 	}

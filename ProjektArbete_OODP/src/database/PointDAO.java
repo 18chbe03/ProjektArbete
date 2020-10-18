@@ -13,6 +13,38 @@ public class PointDAO implements Dao<TrackPoint>{
 	DbConnectionManager dbConManagerSingleton = null;
 	
 	@Override
+	public List<TrackPoint> getActivityPointsById(int id) {
+		List<TrackPoint> list = new ArrayList<>();
+		dbConManagerSingleton =DbConnectionManager.getInstance();
+		
+		try {
+			ResultSet resultSet = dbConManagerSingleton.excecuteQuery("SELECT Date, Time, ElapsedTim, Longitude, latitude, altitude, distance, heartrate,speed, cadence FROM points WHERE activity = " + id);
+			while(resultSet.next()) {
+				list.add(new TrackPoint(resultSet.getString(1).trim(),
+						resultSet.getString(2).trim(),
+						resultSet.getDouble(3),
+						resultSet.getDouble(4),
+						resultSet.getDouble(5),
+						resultSet.getDouble(6),
+						resultSet.getDouble(7),
+						resultSet.getInt(8),
+						resultSet.getDouble(9),
+						resultSet.getInt(10)
+						)
+						);
+			}
+			dbConManagerSingleton.close();
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		
+		
+		return list;
+	}
+	
+	
+	@Override
 	public List<TrackPoint> getAll() {
 		List<TrackPoint> list = new ArrayList<>();
 	
@@ -46,14 +78,15 @@ public class PointDAO implements Dao<TrackPoint>{
 		
 
 		PreparedStatement preparedStatement = null; 
-		ResultSet resultSet = null;
+		dbConManagerSingleton =DbConnectionManager.getInstance();
+		//ResultSet resultSet = null;
 		
 		
 		try {
 			
-			for(int i = 0; i < tList.size(); i++) {
-			
 			preparedStatement = dbConManagerSingleton.prepareStatement("Insert INTO points(Date, Time, ElapsedTim , Latitude ,Longitude ,Altitude ,Distance ,HeartRate , Speed ,Cadence) values(CAST(? AS DATE), CAST(? AS TIME), ?, ?, ?, ?, ?,?, ?, ?)");
+			
+			for(int i = 0; i < tList.size(); i++) {
 			
 			preparedStatement.setString(1, tList.get(i).getDate());
 			preparedStatement.setString(2, tList.get(i).getTime());
