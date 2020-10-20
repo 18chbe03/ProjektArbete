@@ -2,7 +2,7 @@ package database;
 import java.util.List;
 import trackPoint.TrackPoint;
 
-public interface Dao<T> {
+public interface DaoType<T> {
 
 	List<T> getAll();
 	void update(List<T> tList);

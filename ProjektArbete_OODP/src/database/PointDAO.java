@@ -8,7 +8,7 @@ import java.util.List;
 
 import trackPoint.TrackPoint;
 
-public class PointDAO implements Dao<TrackPoint>{
+public class PointDAO implements DaoType<TrackPoint>{
 	
 	DbConnectionManager dbConManagerSingleton = null;
 	

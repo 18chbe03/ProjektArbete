@@ -23,5 +23,5 @@ public class Activity {
 		this.pointList = pointsDao.getAll();
 	}
 	
-	
+
 }

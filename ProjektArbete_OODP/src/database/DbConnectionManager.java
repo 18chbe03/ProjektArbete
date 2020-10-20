@@ -13,7 +13,7 @@ import java.sql.Statement;
 		
 		private static final String DB_NAME = "OODPtestDb"; // Change value to your database
 		private static final String USER = "postgres"; // Change value to your user
-		private static final String PASSWORD = "kojjans123" ; // Change value to your password
+		private static final String PASSWORD = "Chrille0" ; // Change value to your password
 		private static final String CONNECTION_URL = "jdbc:postgresql://localhost/" + DB_NAME;
 		
 		private Connection connection = null;
