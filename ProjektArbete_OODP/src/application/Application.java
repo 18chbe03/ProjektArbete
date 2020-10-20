@@ -4,7 +4,11 @@ import java.util.List;
 
 import javax.swing.SwingUtilities;
 
-
+import activity.Activity;
+import database.DaoType;
+import database.PointDAO;
+import presentation.DataPresentation;
+import trackPoint.TrackPoint;
 import view.ActivityClockGUI;
 
 
@@ -12,10 +16,25 @@ public class Application {
 
 	public static void main(String [] args ) {
 		
+		Activity activity = new Activity(1, "BRÄNNBOOLL");
+		//DaoType<TrackPoint> pointDao = new PointDAO();
+		
+		activity.getActivity();
+
+	DataPresentation dp = new DataPresentation(); 
+	
+	System.out.println("AvgSpeed: " + dp.getAverageSpeed(activity));
+	System.out.println("MaxSpeed: " + dp.getMaxSpeed(activity));
+	System.out.println("MinSpeed: " + dp.getMinSpeed(activity));
+	System.out.println("Totaldistance: " + dp.getTotalDistance(activity));
+	System.out.println("AvgHR: " + dp.getAvargeHeartRate(activity));
+	System.out.println("MaxHr: " + dp.getMaxHeartRate(activity));
+	System.out.println("MinHR: "  + dp.getMinHeartRate(activity));
 		
 
-        SwingUtilities.invokeLater(() -> new ActivityClockGUI());
+        //SwingUtilities.invokeLater(() -> new ActivityClockGUI());
     
+        System.out.println();
         
 	}
 

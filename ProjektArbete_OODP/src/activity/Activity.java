@@ -15,6 +15,12 @@ public class Activity {
 	public Activity(int activityId, String activityName) {
 		this.activityId = activityId;
 		this.activityName = activityName;
+		
+	}
+	
+	public String setActivityName() { // EJ KLAR!
+		
+		return null;
 	}
 	
 	
@@ -22,6 +28,13 @@ public class Activity {
 		PointDAO pointsDao = new PointDAO();
 		this.pointList = pointsDao.getAll();
 	}
+	
+	public List<TrackPoint> getPointList() {
+		
+		return pointList; 
+	}
+	
+	
 	
 
 }
