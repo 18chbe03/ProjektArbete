@@ -1,10 +1,12 @@
 package application;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.SwingUtilities;
 
 import activity.Activity;
+import database.ActivityDAO;
 import database.DaoType;
 import database.PointDAO;
 import presentation.DataPresentation;
@@ -16,60 +18,33 @@ public class Application {
 
 	public static void main(String [] args ) {
 		
-		Activity activity = new Activity(1, "BRÃ„NNBOOLL");
-		//DaoType<TrackPoint> pointDao = new PointDAO();
+		//Activity activity1 = new Activity(1, "Löprunda");
+		//activity1.importData("C:\\Users\\fredr\\OneDrive\\Dokument\\ObjektOrienteradProgramering\\Projekt\\CSV-filer\\csv\\öppetSpårSälenMora\\activity_3412661142.csv");
+		//activity1.addActivity()
+		ActivityDAO activityDao = new ActivityDAO();
+		List<Activity> activityList = new ArrayList<Activity>();
+		activityList = activityDao.getAllActivitys();
 		
-		activity.getActivity();
-
-	DataPresentation dp = new DataPresentation(); 
-	
-	System.out.println("AvgSpeed: " + dp.getAverageSpeed(activity));
-	System.out.println("MaxSpeed: " + dp.getMaxSpeed(activity));
-	System.out.println("MinSpeed: " + dp.getMinSpeed(activity));
-	System.out.println("Totaldistance: " + dp.getTotalDistance(activity));
-	System.out.println("AvgHR: " + dp.getAvargeHeartRate(activity));
-	System.out.println("MaxHr: " + dp.getMaxHeartRate(activity));
-	System.out.println("MinHR: "  + dp.getMinHeartRate(activity));
+		System.out.println(activityList.get(0).getName());
+		activityList.get(0).setActivityList();
+		
+		
+		DataPresentation dp = new DataPresentation();
+		
+		System.out.println("AvgSpeed: " + dp.getAverageSpeed(activityList.get(0)));
+		/*System.out.println("MaxSpeed: " + dp.getMaxSpeed(activityList.get(0)));
+		System.out.println("MinSpeed: " + dp.getMinSpeed(activityList.get(0)));
+		System.out.println("Totaldistance: " + dp.getTotalDistance(activityList.get(0)));
+		System.out.println("AvgHR: " + dp.getAvargeHeartRate(activityList.get(0)));
+		System.out.println("MaxHr: " + dp.getMaxHeartRate(activityList.get(0)));
+		System.out.println("MinHR: "  + dp.getMinHeartRate(activityList.get(0)));*/
 		
 
         //SwingUtilities.invokeLater(() -> new ActivityClockGUI());
     
         System.out.println();
-        
 	}
+        
+}
 
 		
-//DaoType<TrackPoint> pointDao = new PointDAO();
-	//	TrackPoint update = new TrackPoint ("2016-09-24" , "11:50:03", 0, 18.1765415, 59.359862, 26, 0.3,0,0,0 );
-	//	DataPresentation dp = new DataPresentation("");
-		
-	//	List <TrackPoint> list = pointDao.getActivityPointsById(2);
-
-	//	for(int i = 0; i < list.size(); i++) {
-			//System.out.println(list.get(i).toString());	
-		
-		//System.out.print(pointDao.getAll());
-		}
-
-	//	System.out.println("Den genomsnittliga pulsen under rundan var: " + dp.getAvargeHeartRate());
-	//	System.out.println("Maxpuls under rundan var: " + dp.getMaxHeartRate());*/
-	
-		//DaoType<TrackPoint> pointDao = new PointDAO();
-		
-		/*DataRead dr = new DataRead("C:\\Users\\fredr\\Documents\\Objektorienterad prog\\Projekt\\Datafiler\\csv\\activity_3412661142.csv");
-		List<TrackPoint> list = new ArrayList<TrackPoint>();
-		list = dr.readFile();
-		
-		for(int i = 0; i < list.size(); i++) {
-			System.out.println(list.get(i).toString());
-		}
-		
-		List<TrackPoint> listTest = new ArrayList<TrackPoint>();
-		TrackPoint update = new TrackPoint ("2016-09-24" , "11:50:03", 0, 18.1765415, 59.359862, 26, 0.3,0,0,0 );
-		listTest.add(update);
-		
-		pointDao.update(list);*/
-	//}
-
-
-//}

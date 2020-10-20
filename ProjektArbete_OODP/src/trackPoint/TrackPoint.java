@@ -13,6 +13,9 @@ public class TrackPoint implements TrackingPointType{
 	private double speed;
 	private int cadence;
 	
+	public TrackPoint() {
+		
+	}
 	
 	public TrackPoint(String date, String time, double elapsedTime, double longitude, double latitude, double altitude, double distance, int heartRate, double speed, int cadence){
 		this.date = date;
@@ -50,10 +53,6 @@ public class TrackPoint implements TrackingPointType{
 
 	public void setCadence(int cadence) {
 		this.cadence = cadence;
-	}
-
-	public TrackPoint() {
-		
 	}
 	
 	@Override

@@ -31,9 +31,12 @@ public class DataRead {
 	try {
 		BufferedReader br = new BufferedReader(new FileReader(path));
 	
+	
 		
 			while((line = br.readLine()) != null) {
-				String[] values  = line.split(",");
+				String[] values  = line.split(";");
+				
+				//System.out.println(values[0] + values[1] + values[2] + values[3] + values[4] + values[5]);
 				
 				ref = new TrackPoint();
 				ref.setDate(values[0]);

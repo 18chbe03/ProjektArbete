@@ -11,7 +11,7 @@ import trackPoint.TrackPoint;
 
 public class ActivityClockGUI extends JFrame {
 
-	DaoType<TrackPoint> pointDao = new PointDAO();
+	DaoType<TrackPoint> pointDao = (DaoType<TrackPoint>) new PointDAO();
 
 	private ArrayList<TrackPoint> tp = (ArrayList<TrackPoint>) pointDao.getAll();
 

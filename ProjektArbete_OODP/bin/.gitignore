@@ -1,5 +1,8 @@
-/presentation/
-/view/
-/database/
-/application/
 /activity/
+/application/
+/controller/
+/data/
+/database/
+/presentation/
+/trackPoint/
+/view/
