@@ -33,7 +33,7 @@ public class Activity {
 	}
 	
 	
-	public void setActivityList() {
+	public void setPointList() {
         PointDAO pointsDao = new PointDAO();
         this.pointList = pointsDao.getActivityPointsById(this.activityId);
     }
@@ -46,7 +46,7 @@ public class Activity {
 		pointsDao.update(pointList, this.activityId);
 	}
 	
-	private void addActivity() {
+	public void addActivityToDB() {
 		ActivityDAO activityDao = new ActivityDAO();
 		activityDao.update(this.activityId, this.activityName);
 	}
